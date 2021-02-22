@@ -1,0 +1,43 @@
+@startuml DiagramStationMeteo
+
+class AffichageLCD
+{
+     LcdColonne : int
+     lcdRangees : int
+    void Afficher()
+    void Initialiser()
+}
+
+class GestionBME
+{
+    m_bme : Adafruit_BME280
+    m_adresse : byte
+
+    void ValiderConnexion()
+    String EnvoiTemperature()
+    String EnvoiPression()
+    String EnvoiHumidite()
+}
+
+class WifiManager
+{
+
+}
+
+class ManagerMQQT
+{
+
+}
+
+class Station
+{
+    void Initilaiser()
+    void Executer()
+}
+WifiManager --|> Station
+AffichageLCD --|> Station
+GestionBME --|> Station
+ManagerMQQT --|> WifiManager
+
+
+@enduml

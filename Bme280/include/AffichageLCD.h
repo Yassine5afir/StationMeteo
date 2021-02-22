@@ -6,7 +6,7 @@ class AffichageLCD
 {
 
 public:
-    AffichageLCD();
+    AffichageLCD(); //adresse plus les collonenenenes
     void Initialiser();
     void Afficher(String p_temp, String p_pression, String p_humidite);
 private:
