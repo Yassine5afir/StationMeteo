@@ -9,7 +9,7 @@ class GestionConnexion
 {
     public:
     void Initialiser();
-    void ConfigurationSpiffs();
+    void SauvegardeDonneesSpiffs();
     void Executer(String p_temperature,String p_pression, String p_humidite);
     private:
 
