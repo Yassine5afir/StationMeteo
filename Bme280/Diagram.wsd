@@ -2,8 +2,9 @@
 
 class AffichageLCD
 {
-     LcdColonne : int
-     lcdRangees : int
+     m_LcdColonne : int
+     m_lcdRangees : int
+     m_lcd : Adafruit_BME280
     void Afficher()
     void Initialiser()
 }
@@ -19,12 +20,13 @@ class GestionBME
     String EnvoiHumidite()
 }
 
-class WifiManager
+class GestionConnexion
 {
-
+    void Initialiser()
+    void Executer()
 }
 
-class ManagerMQQT
+class ConfigurationCredential()
 {
 
 }
@@ -34,10 +36,10 @@ class Station
     void Initilaiser()
     void Executer()
 }
-WifiManager --|> Station
+
+GestionConnexion --|> Station
 AffichageLCD --|> Station
 GestionBME --|> Station
-ManagerMQQT --|> WifiManager
-
+ConfigurationCredential --|> GestionConnexion
 
 @enduml
