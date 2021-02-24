@@ -9,6 +9,7 @@ GestionConnexion connexionWifi;
 void Station::Initialiser()
 {
     connexionWifi.Initialiser();
+    connexionWifi.SauvegardeDonneesSpiffs();
     affichage.Initialiser();
     gestionBME.ValiderConnexion();
 }

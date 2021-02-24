@@ -1,5 +1,6 @@
 #include <GestionConnexion.h>
 
+
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -27,6 +28,39 @@ void Callback()
     shouldSaveConfig = true;
 }
 
+void GestionConnexion::SauvegardeDonneesSpiffs()
+{
+    if (shouldSaveConfig)
+    {
+        File fichierJson = SPIFFS.open("/configuration.json", "r");
+
+        DynamicJsonDocument doc(512);
+
+        deserializeJson(doc, fichierJson);
+
+        doc["mqtt server"] = mqtt_Server;
+        doc["mqtt Port"] = mqtt_Port;
+        doc["mqtt user"] = mqtt_User;
+        doc["mqtt password"] = mqtt_Password;
+
+        serializeJson(doc, fichierJson);
+
+        fichierJson.close();
+
+        doc.clear();
+
+        shouldSaveConfig = false;
+
+        Serial.println("Configuration SPIFFS avec succès ...");
+    }
+
+    else
+    {
+        Serial.println("Les configurations ne sont pas enregistrées");
+    }
+    
+}
+
 void GestionConnexion::Initialiser()
 {
     WiFi.mode(WIFI_STA);
@@ -49,6 +83,7 @@ void GestionConnexion::Initialiser()
     else
     {
         Serial.println("Connexion etablie");
+        Callback();
     }
 
     strcpy(mqtt_Server, custom_mqtt_server.getValue());
