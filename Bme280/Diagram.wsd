@@ -24,12 +24,9 @@ class GestionConnexion
 {
     void Initialiser()
     void Executer()
+    void SauvegardeDonneesSpiffs()
 }
 
-class ConfigurationCredential()
-{
-
-}
 
 class Station
 {
@@ -40,6 +37,5 @@ class Station
 GestionConnexion --|> Station
 AffichageLCD --|> Station
 GestionBME --|> Station
-ConfigurationCredential --|> GestionConnexion
 
 @enduml
