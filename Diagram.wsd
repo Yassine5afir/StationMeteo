@@ -1,0 +1,41 @@
+@startuml DiagramStationMeteo
+
+class AffichageLCD
+{
+     m_LcdColonne : int
+     m_lcdRangees : int
+     m_lcd : Adafruit_BME280
+    void Afficher()
+    void Initialiser()
+}
+
+class GestionBME
+{
+    m_bme : Adafruit_BME280
+    m_adresse : byte
+
+    void ValiderConnexion()
+    String EnvoiTemperature()
+    String EnvoiPression()
+    String EnvoiHumidite()
+}
+
+class GestionConnexion
+{
+    void Initialiser()
+    void Executer()
+    void SauvegardeDonneesSpiffs()
+}
+
+
+class Station
+{
+    void Initilaiser()
+    void Executer()
+}
+
+GestionConnexion --|> Station
+AffichageLCD --|> Station
+GestionBME --|> Station
+
+@enduml
