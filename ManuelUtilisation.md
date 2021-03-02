@@ -106,4 +106,9 @@ Voici comment rentrer les jauges.
 Les jauges sont choisis dans les cartes. Lors de l'ajout du code nous avons accès au différente entité que nous avons ajouté précédement dans le code.
 Si vous souhaitez appliquer des modifications ou ajouter des entités vous pouvez simplement les rajouter dans le code.
 
-![Jauge](/Image/Jauge.png)
+![Jauge](/Image/Jauge.png).
+
+##### Étape 4:  Connexion
+
+Lors de la premiere connexion vous devrez rentrer les informations du Wifi qui a été préalablement scanner par la station météo
+Et ensuite la station enregistera les credentials.
